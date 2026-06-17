@@ -4,6 +4,10 @@
 
 [![CI](https://github.com/legalrealist/lying-spreadsheets-ii/actions/workflows/ci.yml/badge.svg)](https://github.com/legalrealist/lying-spreadsheets-ii/actions/workflows/ci.yml)
 
+![A loan-covenant spreadsheet that reads 2.5x COMPLIANT to a pandas pipeline but recalculates to 3.8x BREACH in Excel; the bundled detector flags every cell where the cached value diverges from recomputation](assets/demo.gif)
+
+*Real output from `poc/lying_xlsx.py` and `defense/detect_xlsx.py` on the C3 (fully-consistent) tamper.*
+
 A document can render one thing to a human and hand a parser something else. When that parser feeds an LLM pipeline, the model faithfully reasons over the **attacker's** version while the human approves the **rendered** version. This is not prompt injection — there is no instruction to refuse, and safety alignment is irrelevant. It is **data falsification at the extraction boundary.**
 
 This repo is a sequel to [`lying-spreadsheets`](https://github.com/legalrealist/lying-spreadsheets) (XLSX number-format display vs. raw value) and a companion to [Noroboto](https://github.com/LegalQuants/noroboto) (DOCX/PDF glyph remapping). It adds two more members of the class — a **cached-value** XLSX variant and a **MIME-multipart** email variant — and, more importantly, characterizes the **only defense that actually fires today: the model's own domain reasoning.** We show experimentally that this backstop is real but domain-specific and bypassable, and that the pipeline itself is undefended in every case.

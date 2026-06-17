@@ -76,7 +76,7 @@ def tamper(src: str, dst: str, edits: dict) -> str:
         xml = fh.read()
     for ref, (fake, is_text) in edits.items():
         cell = re.search(rf'<c r="{ref}"[^>]*>.*?</c>', xml).group(0)
-        new = re.sub(r"<v>.*?</v>", "", cell)            # strip any existing cache
+        new = re.sub(r"<v\s*/>|<v>.*?</v>", "", cell)    # strip any existing cache (incl. self-closing <v/>)
         if is_text and 't="str"' not in new:
             new = new.replace(f'<c r="{ref}"', f'<c r="{ref}" t="str"')
         new = new.replace("</c>", f"<v>{fake}</v></c>")  # inject fabricated cache

@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from poc import lying_email, lying_xlsx  # noqa: E402
+from poc import lying_email, lying_xlsx, lying_xlsx_text  # noqa: E402
 from defense import detect_email, detect_xlsx  # noqa: E402
 
 
@@ -43,7 +43,7 @@ def test_xlsx_detector_catches_all_tampers(tmp_path):
     for cond in ("C1", "C2", "C3"):
         path = _build(str(tmp_path), cond)
         findings = detect_xlsx.detect(path)
-        refs = {ref for ref, _, _ in findings}
+        refs = {ref.split("!")[-1] for ref, _, _ in findings}
         assert "B7" in refs, f"{cond}: ratio tamper not detected"
         assert "B9" in refs, f"{cond}: status tamper not detected"
 
@@ -52,6 +52,40 @@ def test_xlsx_detector_passes_control(tmp_path):
     """The control (true caches) raises no divergence."""
     path = _build(str(tmp_path), "C0")
     assert detect_xlsx.detect(path) == []
+
+
+def test_text_divergence(tmp_path):
+    """Non-numeric: pandas reads the fabricated text; the human sees the true text."""
+    src = os.path.join(str(tmp_path), "deal.xlsx")
+    tam = os.path.join(str(tmp_path), "deal_t.xlsx")
+    lying_xlsx_text.build_deal(src)
+    lying_xlsx_text.tamper(src, tam, lying_xlsx_text.TAMPER)
+    m = lying_xlsx_text.pandas_read(tam)
+    assert m["Governing Law"] == "Delaware"      # fabricated
+    assert m["Counterparty Rating"] == "AAA"     # fabricated
+    assert lying_xlsx_text.REFS["B1"] == "New York"  # true (what Excel recalculates)
+
+
+def test_text_detector_catches_with_refs(tmp_path):
+    """Recompute catches the text tamper WHEN the precedent (Refs) sheet is present."""
+    src = os.path.join(str(tmp_path), "deal.xlsx")
+    tam = os.path.join(str(tmp_path), "deal_t.xlsx")
+    lying_xlsx_text.build_deal(src)
+    lying_xlsx_text.tamper(src, tam, lying_xlsx_text.TAMPER)
+    refs = {r.split("!")[-1] for r, _, _ in detect_xlsx.detect(tam)}
+    assert {"B1", "B2", "B3"} <= refs
+
+
+def test_text_detector_goes_dark_without_refs(tmp_path):
+    """Drop the Refs sheet (as a single-sheet extraction would) -> recompute can't
+    verify -> the detector reports nothing. The blind spot, demonstrated."""
+    src = os.path.join(str(tmp_path), "deal.xlsx")
+    tam = os.path.join(str(tmp_path), "deal_t.xlsx")
+    only = os.path.join(str(tmp_path), "deal_only.xlsx")
+    lying_xlsx_text.build_deal(src)
+    lying_xlsx_text.tamper(src, tam, lying_xlsx_text.TAMPER)
+    lying_xlsx_text.make_summary_only(tam, only)
+    assert detect_xlsx.detect(only) == []
 
 
 def test_email_divergence():

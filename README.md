@@ -67,7 +67,7 @@ The pipeline never compares H and M, so the only thing between a falsified docum
 
 **What's new here vs. lying-spreadsheets I.** That the model cross-foots arithmetic and catches *inconsistent* numbers (C1/C2) is the LS-I result, not a new one — LS-I already established that numeric extraction must be recomputed. Those conditions are the **baseline**. Two things go beyond it:
 
-1. **Cross-checking the visible extract is necessary but not sufficient.** A fully internally-consistent fabrication (C3 — components faked so 142+10=152 and 380/152=2.5) passes every cross-foot you can do on the *extracted table*. What catches it is recomputing from the **raw precedents** — the non-formula input cells — because divergence can only live in a formula's cached `<v>`; a raw input has no cache to tamper and so cannot diverge between the human and the pipeline. So recompute-from-inputs is actually a *complete* defense for this attack, and the bundled [`detect_xlsx.py`](defense/detect_xlsx.py) does exactly that (it flags C1, C2, **and** C3). The sharpened lesson: **recompute from inputs, not from the extract.** A validator that merely cross-foots the visible numbers — like the model does — is defeated by C3.
+1. **Cross-checking the visible extract is necessary but not sufficient.** A fully internally-consistent fabrication (C3 — components faked so 142+10=152 and 380/152=2.5) passes every cross-foot you can do on the *extracted table*. What catches it is recomputing from the **raw precedents** — the non-formula input cells — because divergence can only live in a formula's cached `<v>`; a raw input has no cache to tamper and so cannot diverge between the human and the pipeline. So recompute-from-inputs is actually a *complete* defense for this attack, and the bundled [`detect_xlsx.py`](defense/detect_xlsx.py) does exactly that (it flags C1, C2, **and** C3). The sharpened lesson: **recompute from inputs, not from the extract.** A validator that merely cross-foots the visible numbers — like the model does — is defeated by C3. Recompute works for *text* formulas too (governing law, rating, dates), not just numbers — but only while the precedents survive into the extracted data; a single-sheet extraction or an external reference drops them and recompute goes dark, the same blind spot free-text has. See [`experiments/nonnumeric.md`](experiments/nonnumeric.md).
 
 2. **Most falsifiable data has no math to check.** Contract terms, dates, entities, obligations (E3) carry no arithmetic relationship, so cross-checking is *structurally inapplicable* — and both models recorded the divergent terms verbatim. Here the rendered-vs-extracted divergence is the **only** signal; nothing in M alone betrays it.
 
@@ -100,6 +100,7 @@ pip install -r requirements.txt
 
 python poc/lying_xlsx.py      # show pandas reading fabricated caches vs. the true recalculation
 python poc/lying_email.py     # show three readers, three different emails
+python poc/lying_xlsx_text.py # non-numeric: tampered text fields (law/rating/date)
 
 pip install -r requirements-demo.txt   # for the next line only (markitdown, bs4)
 python poc/real_loaders.py    # named tools (MarkItDown, BeautifulSoup) ingest the falsified content

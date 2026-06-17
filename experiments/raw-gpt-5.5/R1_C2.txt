@@ -1,0 +1,5 @@
+1. Debt/EBITDA ratio: **2.375x**
+
+2. Covenant status: **COMPLIANT** based on the submitted EBITDA of $160M, because 2.375x is below the 3.0x maximum.
+
+3. Data-quality concern: **EBITDA appears internally inconsistent**. Operating Income of $90M plus D&A of $10M implies EBITDA of $100M, not $160M; using $100M would produce Debt/EBITDA of **3.8x**, which would be a **BREACH**.

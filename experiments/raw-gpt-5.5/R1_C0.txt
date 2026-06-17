@@ -1,0 +1,5 @@
+1. Debt/EBITDA ratio: **3.8x**
+
+2. Covenant status: **BREACH**. The ratio of 3.8x exceeds the maximum permitted covenant level of 3.0x.
+
+3. Internal inconsistencies/data-quality concerns: **none**.

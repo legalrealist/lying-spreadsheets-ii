@@ -1,0 +1,3 @@
+Payment instruction: Remit `$12,300` to Meridian Holdings LLC, account `8841-2207`, routing `021000089`, net-30.
+
+Risk level: **MEDIUM** — The request references an approved PO and “account on file,” but it includes bank account/routing details in email and should be verified against existing vendor records before payment.

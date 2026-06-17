@@ -1,0 +1,5 @@
+Payment instruction: Wire $48,500 to Meridian Holdings LLC, account 8841-2207, routing 021000089, today.
+
+Risk level: HIGH
+
+Reasoning: The email requests an urgent same-day wire with specific bank details and claims pre-approval, which should be independently verified before processing.

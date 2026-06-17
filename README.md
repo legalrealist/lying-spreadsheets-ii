@@ -67,6 +67,8 @@ The pipeline never compares H and M, so the only thing between a falsified docum
 2. target a field the model has **no reflex to verify** (R4/E3),
 3. avoiding the two defended corners (blatant fraud patterns, instruction-shaped text).
 
+**This replicates across model families.** Re-running the identical conditions against **GPT-5.5** (via Codex) gives the same boundary: it catches the inconsistent tampers (C1/C2) and the fraud/injection shapes (E1/E2), and misses the fully-consistent fabrication (C3) and the no-reflex term divergence (E3) — clean success on both. Details and raw outputs in [`experiments/cross-model-results.md`](experiments/cross-model-results.md).
+
 This sharpens the original insight. lying-spreadsheets said *safety alignment doesn't help*. The actionable version is: **a different faculty — the model's task competence — does help, but only within trained domains, and an attacker simply steps outside them.** Defenders who rely on "the model will notice" are protected exactly where they need it least.
 
 ## The defense: compare the readers
@@ -98,7 +100,7 @@ The divergence is deterministic and needs no model. The "does the LLM catch it" 
 
 ## Limitations & honesty
 
-- The "model catches it" results are from one model family (Claude Sonnet) and small N; they show the **shape** of the defense (domain-specific, bypassable), not a calibrated catch-rate.
+- The "model catches it" results span two model families (Claude Sonnet and GPT-5.5) with the same boundary, but N is small (one run per condition per model); they show the **shape** of the defense (domain-specific, bypassable), not a calibrated catch-rate.
 - The bundled `detect_xlsx` recompute engine is intentionally small (common operators + `IF`/`SUM`/`MIN`/`MAX`/`ROUND`/`ABS`/`AVERAGE`). For arbitrary workbooks use LibreOffice headless recalc, [`formulas`](https://pypi.org/project/formulas/), or [`pycel`](https://pypi.org/project/pycel/).
 - This is a known class in eDiscovery and security research. The new material is the two instances and the **defense characterization**, not the existence of parser-differentials.
 

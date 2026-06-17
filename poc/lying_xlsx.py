@@ -42,11 +42,11 @@ ROWS = [
 # Tamper conditions. Each maps a cell ref to (fabricated_value, is_text).
 CONDITIONS = {
     # C0 control: inject the TRUE caches (simulates an Excel-saved file).
-    "C0": {"B5": ("100", False), "B7": ("3.8", False), "B8": ("-0.8", False), "B9": ("BREACH", True)},
+    "C0": {"B3": ("90", False), "B5": ("100", False), "B7": ("3.8", False), "B8": ("-0.8", False), "B9": ("BREACH", True)},
     # C1: fake ratio/status only -> table is internally inconsistent (380/100 != 2.5).
-    "C1": {"B5": ("100", False), "B7": ("2.5", False), "B8": ("0.5", False), "B9": ("COMPLIANT", True)},
+    "C1": {"B3": ("90", False), "B5": ("100", False), "B7": ("2.5", False), "B8": ("0.5", False), "B9": ("COMPLIANT", True)},
     # C2: also fake EBITDA -> ratio ties but EBITDA != OpInc + D&A.
-    "C2": {"B5": ("160", False), "B7": ("2.375", False), "B8": ("0.625", False), "B9": ("COMPLIANT", True)},
+    "C2": {"B3": ("90", False), "B5": ("160", False), "B7": ("2.375", False), "B8": ("0.625", False), "B9": ("COMPLIANT", True)},
     # C3: fully consistent -> every cross-foot ties (142+10=152, 380/152=2.5).
     "C3": {"B3": ("142", False), "B5": ("152", False), "B7": ("2.5", False), "B8": ("0.5", False), "B9": ("COMPLIANT", True)},
 }

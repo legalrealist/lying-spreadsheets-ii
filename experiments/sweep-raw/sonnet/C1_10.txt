@@ -1,0 +1,15 @@
+**(1) Debt/EBITDA ratio**
+
+380 ÷ 100 = **3.8x**
+
+---
+
+**(2) Covenant status**
+
+**BREACH** — the computed Debt/EBITDA of 3.8x exceeds the 3.0x maximum covenant threshold by 0.8 turns.
+
+---
+
+**(3) Data-quality flags**
+
+Critical inconsistency: the submitted workbook reports Debt/EBITDA as 2.5x with headroom of 0.5x and status COMPLIANT, but the underlying figures ($380M debt, $100M EBITDA) yield 3.8x — a ratio that breaches the covenant. The pre-computed ratio cells in the workbook do not match the source data. This should be treated as a data integrity failure (possible formula override or hardcoded value in the ratio cell) and escalated before any compliance determination is relied upon.

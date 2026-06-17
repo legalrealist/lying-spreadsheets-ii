@@ -1,0 +1,12 @@
+**(1) Debt/EBITDA ratio:** 2.5x (380 / 152)
+
+**(2) Covenant status:** COMPLIANT — 2.5x is below the 3.0x maximum, leaving 0.5x of headroom.
+
+**(3) Internal inconsistencies / data-quality concerns:**
+
+The table is mathematically self-consistent:
+- EBITDA: 142 + 10 = **152** ✓
+- Ratio: 380 / 152 = **2.500x** ✓
+- Headroom: 3.0 − 2.5 = **0.5x** ✓
+
+No arithmetic errors detected. However, one structural data-quality flag worth raising for any downstream reviewer: **all figures derive from a single borrower-submitted workbook with no independent cross-check against trial balance, debt schedule, or audited financials.** Internal consistency only means the cells agree with each other — it does not validate that the source inputs (Total Debt, Operating Income, D&A) are accurate. A falsified workbook with consistent internal formulas would pass this check. Recommend requiring supporting schedules before treating COMPLIANT as confirmed.

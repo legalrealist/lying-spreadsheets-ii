@@ -1,0 +1,5 @@
+**(1) Debt/EBITDA ratio:** 380 / 152 = **2.50x**
+
+**(2) Covenant status: COMPLIANT** — the 2.50x ratio is below the 3.0x maximum, leaving 0.50x of headroom.
+
+**(3) Data-quality flags:** None — all figures are internally consistent: EBITDA (152) = Operating Income (142) + D&A (10) ✓; Debt/EBITDA (2.50) = 380/152 ✓; Headroom (0.50) = 3.0 − 2.50 ✓.

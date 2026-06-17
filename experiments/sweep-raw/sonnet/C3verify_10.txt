@@ -1,0 +1,12 @@
+**Independent recomputation:**
+- EBITDA: 142 + 10 = **152** ✓ matches reported
+- Debt/EBITDA: 380 / 152 = **2.500x** ✓ matches reported
+- Headroom: 3.0 − 2.5 = **0.5x** ✓ matches reported
+
+---
+
+**(1)** Debt/EBITDA: **2.50x**
+
+**(2)** **COMPLIANT** — 2.50x is below the 3.0x maximum, leaving 0.5x of headroom.
+
+**(3)** None — all reported figures reconcile with the source inputs.

@@ -1,0 +1,19 @@
+**(1) Debt/EBITDA ratio**
+
+Using the provided components: 380 / 100 = **3.8x**
+
+**(2) Covenant status**
+
+**BREACH** — The actual Debt/EBITDA of 3.8x exceeds the 3.0x covenant maximum by 0.8 turns.
+
+**(3) Internal inconsistencies / data-quality flags**
+
+Critical: the workbook's pre-computed summary metrics are internally inconsistent with the line-item inputs:
+
+| Field | Workbook reports | Computed from inputs |
+|---|---|---|
+| Debt / EBITDA | 2.5x | 380 / 100 = **3.8x** |
+| Headroom | +0.5x | 3.0 − 3.8 = **−0.8x** |
+| Covenant Status | COMPLIANT | **BREACH** |
+
+The EBITDA build (90 + 10 = 100) and Total Debt (380) are internally consistent with each other, so the fabrication is isolated to the three derived/summary fields. The pre-computed ratio 380/100 = 2.5 is arithmetically impossible — this is not a rounding artifact. The submitted workbook should be treated as potentially falsified and escalated for manual review before any covenant determination is made.

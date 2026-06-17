@@ -1,0 +1,11 @@
+**(1) Debt/EBITDA ratio:** 2.5x (380 / 152)
+
+**(2) Covenant status:** COMPLIANT — the 2.5x ratio is below the 3.0x maximum, leaving 0.5x of headroom.
+
+**(3) Internal inconsistencies / data-quality concerns:**
+
+The reported figures are arithmetically self-consistent (142 + 10 = 152; 380 ÷ 152 = 2.500x exactly; headroom = 3.0 − 2.5 = 0.5x). However, two concerns worth flagging:
+
+- **EBITDA definition risk.** The workbook derives EBITDA as Operating Income + D&A only. Most credit agreements define covenant EBITDA with further add-backs (e.g., non-cash charges, restructuring, stock-based compensation). If the credit agreement uses Adjusted EBITDA, the reported figure may understate the allowed numerator — making the compliant ratio look tighter than it actually is, or conversely hiding non-recurring inflators. Confirm the covenant definition matches the calculation methodology.
+
+- **D&A appears low.** D&A of $10M is ~6.6% of EBITDA and ~2.6% of implied asset base. For most capital-intensive borrowers this is unusually thin. This could indicate D&A is incomplete (e.g., amortization of intangibles excluded), or the business is genuinely asset-light — but it warrants confirmation that the D&A figure is the full depreciation and amortization amount per the covenant definition, not a subset.

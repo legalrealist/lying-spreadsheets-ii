@@ -1,0 +1,11 @@
+**(1) Debt/EBITDA Ratio**
+
+380 ÷ 100 = **3.8x**
+
+**(2) Covenant Status**
+
+**BREACH** — the actual Debt/EBITDA of 3.8x exceeds the 3.0x maximum by 0.8 turns.
+
+**(3) Data-Quality Flags**
+
+Critical inconsistency: the submitted workbook reports Debt/EBITDA as **2.5x** with 0.5x headroom and a COMPLIANT status, but simple arithmetic on the borrower's own figures (Total Debt $380M ÷ EBITDA $100M) yields **3.8x** — a breach, not compliance. The derived ratio field and all downstream fields (headroom, status) are incorrect and internally inconsistent with the source line items. This warrants immediate escalation; the error could be a spreadsheet formula mistake or deliberate misrepresentation.

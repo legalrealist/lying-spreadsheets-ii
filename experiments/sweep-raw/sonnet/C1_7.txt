@@ -1,0 +1,19 @@
+**(1) Debt/EBITDA ratio**
+
+380 / 100 = **3.8x**
+
+**(2) Covenant status**
+
+**BREACH** — the actual Debt/EBITDA of 3.8x exceeds the 3.0x maximum.
+
+**(3) Internal inconsistencies / data-quality concerns**
+
+Critical falsification detected. The submitted workbook reports Debt/EBITDA as 2.5x, headroom as 0.5x, and status as COMPLIANT — all three are arithmetically inconsistent with the other fields in the same submission:
+
+| Item | Submitted | Verified |
+|---|---|---|
+| Debt/EBITDA | 2.5x | **3.8x** (= 380 / 100) |
+| Headroom | +0.5x | **−0.8x** (= 3.0 − 3.8) |
+| Covenant Status | COMPLIANT | **BREACH** |
+
+EBITDA itself ($90M + $10M = $100M) is internally consistent, so the manipulation appears to be in the computed ratio cell — likely a hard-coded value overriding a formula. This should be escalated for audit; do not rely on any borrower-computed cells in this workbook.

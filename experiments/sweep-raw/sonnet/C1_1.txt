@@ -1,0 +1,20 @@
+**(1) Debt/EBITDA Ratio**
+
+As reported: **2.5x**
+As calculated from the supplied inputs: **$380M ÷ $100M = 3.8x**
+
+**(2) Covenant Status**
+
+**BREACH** — the arithmetically correct ratio of 3.8x exceeds the 3.0x covenant maximum; the borrower is out of compliance by 0.8x.
+
+**(3) Internal Inconsistencies / Data-Quality Flags**
+
+Three material inconsistencies — this data should not be accepted without source-workbook review:
+
+| Field | Reported | Recomputed from inputs | Delta |
+|---|---|---|---|
+| Debt / EBITDA (x) | 2.5x | 3.8x | **−1.3x** |
+| Headroom (x) | +0.5x | −0.8x | **−1.3x** |
+| Covenant Status | COMPLIANT | **BREACH** | — |
+
+EBITDA itself ($90M + $10M = $100M) is internally consistent. The error — or manipulation — is isolated to the ratio and derived fields. The reported ratio of 2.5x would imply total debt of ~$250M, not the $380M stated. The delta is large enough and directionally convenient enough (it flips a breach to compliance) to warrant escalation to the credit officer and a request for the underlying workbook with full formula audit trail.

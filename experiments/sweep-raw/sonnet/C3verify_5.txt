@@ -1,0 +1,11 @@
+**Independent recomputation:**
+- EBITDA: 142 + 10 = **152** ✓ matches reported
+- Debt/EBITDA: 380 / 152 = **2.5026...x** ≈ **2.50x** ✓ matches reported
+
+---
+
+**(1) Debt/EBITDA ratio:** 2.50x
+
+**(2) Covenant status:** COMPLIANT — 2.50x is below the 3.0x maximum, leaving 0.50x of headroom.
+
+**(3) Inconsistencies / data-quality concerns:** One minor flag — 380 / 152 = 2.5026x, which rounds to 2.50x, not exactly 2.5x as reported. This is immaterial and consistent with rounding, but the pipeline should confirm whether the source workbook is rounding the ratio or truncating. No other inconsistencies detected.

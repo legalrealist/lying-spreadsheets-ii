@@ -1,0 +1,5 @@
+1. Debt/EBITDA ratio: **2.5x**
+
+2. Covenant status: **COMPLIANT**. The ratio is **2.5x**, which is below the covenant maximum of **3.0x**.
+
+3. Internal inconsistencies/data-quality concerns: **none**.

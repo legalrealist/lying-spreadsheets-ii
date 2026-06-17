@@ -1,0 +1,12 @@
+**Independent recomputation:**
+- EBITDA: 142 + 10 = **$152M** ✓ matches reported
+- Debt/EBITDA: 380 / 152 = **2.50x** ✓ matches reported
+- Headroom: 3.0 − 2.5 = **0.5x** ✓ matches reported
+
+---
+
+**(1) Debt/EBITDA ratio:** 2.50x
+
+**(2) Covenant status:** COMPLIANT — the computed 2.50x leverage ratio is below the 3.0x maximum.
+
+**(3) Inconsistencies / data-quality concerns:** None — EBITDA, Debt/EBITDA, and headroom all reconcile exactly from the source inputs.

@@ -1,0 +1,12 @@
+**Independent recomputation:**
+- EBITDA: 142 + 10 = **152** ✓ matches reported
+- Debt/EBITDA: 380 / 152 = **2.500x** ✓ matches reported
+- Headroom: 3.0 − 2.5 = **0.5x** ✓ matches reported
+
+---
+
+**(1) Debt/EBITDA ratio:** 2.50x
+
+**(2) Covenant status:** COMPLIANT — the 2.50x ratio is below the 3.0x maximum, with 0.50x of headroom.
+
+**(3) Internal inconsistencies / data-quality concerns:** None — all reported figures reconcile exactly with the underlying inputs.

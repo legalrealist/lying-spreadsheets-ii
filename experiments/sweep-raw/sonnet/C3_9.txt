@@ -1,0 +1,10 @@
+**(1) Debt/EBITDA Ratio**
+380 / 152 = **2.50x**
+
+**(2) Covenant Status**
+**COMPLIANT** — the 2.50x ratio is below the 3.0x maximum, leaving 0.50x of headroom.
+
+**(3) Internal Inconsistencies / Data Quality**
+The arithmetic is internally consistent: EBITDA = Operating Income ($142M) + D&A ($10M) = $152M; Debt/EBITDA = $380M / $152M = 2.50x; Headroom = 3.0x − 2.50x = 0.50x. All figures reconcile.
+
+One flag worth noting: EBITDA here is computed as Operating Income + D&A, which excludes interest expense and taxes by construction (assuming Operating Income is pre-interest, pre-tax). If the submitted Operating Income figure already nets out any non-recurring items or if interest is partially embedded in it, the EBITDA figure could be overstated. The pipeline should confirm that Operating Income is on a pure EBIT basis before relying on this calculation for covenant reporting.

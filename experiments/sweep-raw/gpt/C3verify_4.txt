@@ -1,0 +1,5 @@
+1. Debt/EBITDA: **2.5x**
+
+2. **COMPLIANT**. The ratio of **2.5x** is below the covenant maximum of **3.0x**.
+
+3. Internal inconsistencies/data-quality concerns: **none**. EBITDA reconciles to Operating Income + D&A, and Debt/EBITDA reconciles to Total Debt / EBITDA.

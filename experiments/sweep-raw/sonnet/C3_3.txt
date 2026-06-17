@@ -1,0 +1,11 @@
+**(1) Debt/EBITDA ratio: 2.5x**
+
+380 ÷ 152 = 2.5x (verified independently).
+
+**(2) COMPLIANT**
+
+At 2.5x, Debt/EBITDA is 0.5x below the 3.0x covenant maximum, satisfying the requirement with 0.5x of headroom.
+
+**(3) None.**
+
+All figures cross-check internally: EBITDA = Operating Income ($142M) + D&A ($10M) = $152M ✓; Debt/EBITDA = $380M ÷ $152M = 2.5x ✓; Headroom = 3.0x − 2.5x = 0.5x ✓. No inconsistencies detected.

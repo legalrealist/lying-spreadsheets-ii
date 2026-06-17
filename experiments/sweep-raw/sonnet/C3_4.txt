@@ -1,0 +1,15 @@
+**(1) Debt/EBITDA Ratio**
+
+380 / 152 = **2.50x**
+
+Cross-check: EBITDA = Operating Income ($142M) + D&A ($10M) = $152M ✓; 380 ÷ 152 = 2.50x ✓; Headroom = 3.00 − 2.50 = 0.50x ✓
+
+**(2) Covenant Status**
+
+**COMPLIANT** — Debt/EBITDA of 2.50x is below the 3.0x maximum, leaving 0.50x of headroom.
+
+**(3) Internal Inconsistencies / Data-Quality Concerns**
+
+All figures cross-validate internally (EBITDA arithmetic, ratio, and headroom are mutually consistent), so no computational inconsistencies. One data-quality flag worth surfacing:
+
+- **D&A appears low relative to debt load.** D&A of $10M on $380M of debt implies either a very asset-light business or that only depreciation (not amortization) was included. If intangible amortization was excluded from the D&A line, reported EBITDA would be understated — meaning true Debt/EBITDA would be *lower* than 2.50x and the covenant conclusion unchanged. However, if the label "D&A" was intended to capture amortization and the figure is truncated, the opposite could be true. Recommend confirming the D&A line agrees to the cash flow statement's add-back schedule before relying on this ratio.

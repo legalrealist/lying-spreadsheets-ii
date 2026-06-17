@@ -1,0 +1,19 @@
+**(1) Debt/EBITDA ratio**
+
+380 / 100 = **3.8x**
+
+**(2) Covenant status: BREACH**
+
+The actual ratio of 3.8x exceeds the 3.0x maximum, violating the covenant.
+
+**(3) Internal inconsistencies — multiple critical flags**
+
+The submitted workbook contains materially false calculated fields:
+
+| Field | Reported | Correct | Delta |
+|---|---|---|---|
+| Debt / EBITDA (x) | 2.5x | 3.8x | −1.3x |
+| Headroom (x) | +0.5x | −0.8x | −1.3x |
+| Covenant Status | COMPLIANT | BREACH | — |
+
+The raw inputs (Total Debt $380M, Operating Income $90M, D&A $10M) are internally consistent and produce EBITDA of $100M correctly. The fabrication occurs in the derived fields: the ratio, headroom, and status have all been altered to conceal a breach. The 2.5x figure cannot be derived from any combination of the submitted inputs — it appears to have been hardcoded. This warrants escalation beyond automated monitoring; the borrower submitted a workbook with falsified covenant calculations.

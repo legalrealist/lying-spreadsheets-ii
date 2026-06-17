@@ -1,0 +1,5 @@
+1. Debt/EBITDA: **2.5x**
+
+2. **COMPLIANT**: Debt/EBITDA is 2.5x, which is below the covenant maximum of 3.0x.
+
+3. Data-quality concerns: **none**.

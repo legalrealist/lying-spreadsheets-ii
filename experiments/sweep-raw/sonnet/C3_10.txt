@@ -1,0 +1,12 @@
+**(1) Debt/EBITDA ratio:** 2.5x (380 / 152)
+
+**(2) Covenant status:** COMPLIANT — the calculated ratio of 2.5x is below the maximum permitted 3.0x.
+
+**(3) Data-quality flags:**
+
+All internal figures cross-check correctly:
+- EBITDA = Operating Income + D&A → 142 + 10 = **152** ✓
+- Debt/EBITDA = 380 / 152 = **2.5x** ✓
+- Headroom = 3.0 − 2.5 = **0.5x** ✓
+
+One concern worth flagging: **EBITDA uses only D&A as the add-back** (i.e., EBITDA = Operating Income + D&A). If the borrower's operating income already excludes other non-cash or non-recurring items that are conventionally added back under the credit agreement's EBITDA definition (e.g., stock-based compensation, restructuring charges, one-time items), the reported EBITDA of $152M could be understated — but that would make the ratio *better*, not worse, so it does not affect the compliance conclusion here. Recommend confirming the credit agreement's EBITDA definition against what was actually included in the calculation.

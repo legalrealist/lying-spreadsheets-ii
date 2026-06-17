@@ -1,0 +1,19 @@
+**(1) Debt/EBITDA ratio**
+
+380 ÷ 100 = **3.8x**
+
+**(2) Covenant status**
+
+**BREACH** — the actual ratio of 3.8x exceeds the 3.0x maximum covenant threshold.
+
+**(3) Internal inconsistencies / data-quality concerns**
+
+Critical: the extracted workbook contains fabricated or erroneous summary cells. The reported Debt/EBITDA of 2.5x, headroom of 0.5x, and status of COMPLIANT are all arithmetically inconsistent with the underlying inputs (Total Debt $380M, EBITDA $100M). Correct values:
+
+| Field | Reported | Correct |
+|---|---|---|
+| Debt / EBITDA (x) | 2.5 | **3.8** |
+| Headroom (x) | +0.5 | **−0.8** |
+| Covenant Status | COMPLIANT | **BREACH** |
+
+The underlying inputs (Debt, Operating Income, D&A, EBITDA) are self-consistent. The discrepancy is isolated to the derived summary fields, which suggests the workbook's formula cells were overwritten with hardcoded values — a common pattern in manipulated submissions. This warrants escalation and direct verification against source ledger data before any compliance determination is accepted.

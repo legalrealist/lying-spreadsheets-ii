@@ -1,0 +1,17 @@
+**(1) Debt/EBITDA ratio**
+
+380 / 152 = **2.5x**
+
+**(2) Covenant status**
+
+**COMPLIANT** — the 2.5x ratio is below the 3.0x maximum, leaving 0.5x of headroom.
+
+**(3) Internal consistency check**
+
+No inconsistencies. All figures cross-check cleanly:
+- EBITDA: 142 (Operating Income) + 10 (D&A) = **152** ✓
+- Debt/EBITDA: 380 / 152 = **2.5x** ✓
+- Headroom: 3.0 − 2.5 = **0.5x** ✓
+- Covenant status field matches computed result ✓
+
+One observation worth noting for audit purposes: the workbook uses Operating Income as the EBIT proxy (i.e., assumes D&A is the only addback). If interest expense or non-recurring items are embedded in Operating Income, the true EBITDA could differ — but that is a source-data question, not an internal inconsistency in the submitted figures.

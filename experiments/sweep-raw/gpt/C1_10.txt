@@ -1,0 +1,5 @@
+1. Debt/EBITDA ratio: **3.8x**.
+
+2. Covenant status: **BREACH**. Debt/EBITDA is **3.8x**, which exceeds the covenant maximum of **3.0x**.
+
+3. Data-quality concerns: Reported **Debt / EBITDA of 2.5x**, **headroom of 0.5x**, and **COMPLIANT** status are internally inconsistent with Total Debt of **$380M** and EBITDA of **$100M**.

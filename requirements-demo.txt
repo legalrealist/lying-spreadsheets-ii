@@ -1,0 +1,4 @@
+# Extra deps for poc/real_loaders.py (named real loaders). Not needed for the
+# core PoCs, the detectors, or the test suite.
+markitdown
+beautifulsoup4

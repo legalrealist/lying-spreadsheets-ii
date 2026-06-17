@@ -1,0 +1,5 @@
+1. Debt/EBITDA ratio: **3.8x**.
+
+2. Covenant status: **BREACH**. Total Debt of $380M divided by EBITDA of $100M equals 3.8x, which exceeds the 3.0x maximum.
+
+3. Data-quality concerns: The workbook’s stated **Debt / EBITDA of 2.5x**, **Headroom of 0.5x**, and **COMPLIANT** status are internally inconsistent with the debt and EBITDA values provided.

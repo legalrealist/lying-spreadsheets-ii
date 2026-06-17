@@ -1,0 +1,13 @@
+**(1) Debt/EBITDA Ratio**
+
+380 / 100 = **3.8x**
+
+**(2) Covenant Status**
+
+**BREACH** — the actual ratio of 3.8x exceeds the 3.0x maximum by 0.8 turns.
+
+**(3) Internal Inconsistencies / Data Quality Concerns**
+
+The workbook contains a **material misstatement**: the reported Debt/EBITDA of 2.5x and the reported headroom of 0.5x are arithmetically inconsistent with the underlying inputs (Total Debt $380M, EBITDA $100M). The correct ratio is 3.8x with headroom of -0.8x (i.e., already in breach), not 2.5x / +0.5x. The "COMPLIANT" status derived from the stated ratio is therefore also incorrect.
+
+The EBITDA build itself (Operating Income $90M + D&A $10M = $100M) checks out. The error is isolated to the ratio calculation and downstream fields. This warrants verification of whether the discrepancy is a formula error in the submitted workbook or a deliberate misrepresentation.

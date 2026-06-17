@@ -73,7 +73,16 @@ The pipeline never compares H and M, so the only thing between a falsified docum
 
 So the LS-I defense (recompute numbers) is both **incomplete** (it must reach raw inputs, not the extract) and **inapplicable** to the larger non-numeric surface. The one general defense is **comparing the two readers — rendered H vs extracted M** — never reasoning about M alone. lying-spreadsheets said *safety alignment doesn't help*; this adds *task competence helps only where there is redundancy to check, and the attacker simply removes it (consistency) or works where there is none (free-text terms).*
 
-**The boundary replicates across model families.** Re-running the identical conditions against **GPT-5.5** (via Codex) gives the same result: C3 and E3 are clean successes on both Sonnet and GPT-5.5. Details and raw outputs in [`experiments/cross-model-results.md`](experiments/cross-model-results.md).
+**Powered results (N = 10 per condition × 2 models, judge-labeled).** Re-running the boundary conditions across GPT-5.5 (Codex) and Claude Sonnet (`claude -p`), labeled by an independent judge ([full results](experiments/sweep-results.md), [raw outputs](experiments/sweep-raw/)):
+
+| Condition | GPT-5.5 | Sonnet |
+|-----------|---------|--------|
+| C1 inconsistent | caught (BREACH) 10/10 | caught (BREACH) 10/10 |
+| C3 fully consistent | certified COMPLIANT 10/10, 0 warned | certified COMPLIANT 10/10, 6/10 warned "unverified" |
+| C3 + *"recompute & verify"* instruction | COMPLIANT 10/10, **0 warned** | COMPLIANT 10/10, **0 warned** |
+| E3 non-numeric terms | recorded as fact 10/10 | recorded as fact 10/10 |
+
+Two things worth flagging. (a) The boundary is identical across both model families. (b) **Telling the model to verify backfires:** adding an explicit "recompute and flag anything that doesn't reconcile" instruction did not raise detection (still 0/20) and *suppressed* Sonnet's spontaneous "this data is unverified / could be falsified" warning (6/10 → 0/10) — the consistent table passes the recompute and manufactures false confidence. Asking for verification was worse than not asking.
 
 ## The defense: compare the readers
 
@@ -92,19 +101,25 @@ pip install -r requirements.txt
 python poc/lying_xlsx.py      # show pandas reading fabricated caches vs. the true recalculation
 python poc/lying_email.py     # show three readers, three different emails
 
+pip install -r requirements-demo.txt   # for the next line only (markitdown, bs4)
+python poc/real_loaders.py    # named tools (MarkItDown, BeautifulSoup) ingest the falsified content
 python defense/detect_xlsx.py <workbook.xlsx>   # recompute-vs-cache detector
 python defense/detect_email.py <message.eml>    # plain-vs-html detector
 
 python -m pytest -q           # deterministic proof: divergence is real, detectors catch it
 ```
 
+## Not a strawman parser
+
+The defaults of tools teams actually use surface the falsified content. Microsoft's **MarkItDown** (a document→Markdown loader built for LLM ingestion) reads the tampered workbook as `Debt/EBITDA 2.5 / COMPLIANT` while Excel shows `3.8 / BREACH`; **BeautifulSoup `.get_text()`** (the canonical HTML-to-text step in RAG/email pipelines) ingests `display:none` content the human never sees. See [`experiments/real-loaders.md`](experiments/real-loaders.md).
+
 ## Reproducing the LLM results
 
-The divergence is deterministic and needs no model. The "does the LLM catch it" findings used blind analyst agents; the exact prompts, the extracted tables they were given, and their verdicts are recorded in [`experiments/analyst-prompts.md`](experiments/analyst-prompts.md) so they can be replayed against any model.
+The divergence is deterministic and needs no model. For the "does the LLM catch it" results: single-run prompts/verdicts are in [`experiments/analyst-prompts.md`](experiments/analyst-prompts.md); the powered N=10 × 2-model sweep (raw outputs, judge labels, runner) is in [`experiments/sweep-results.md`](experiments/sweep-results.md) and [`scripts/`](scripts/).
 
 ## Limitations & honesty
 
-- The "model catches it" results span two model families (Claude Sonnet and GPT-5.5) with the same boundary, but N is small (one run per condition per model); they show the **shape** of the defense (domain-specific, bypassable), not a calibrated catch-rate.
+- The "model catches it" results span two model families (Claude Sonnet and GPT-5.5) at N=10 per condition, judge-labeled (see [`experiments/sweep-results.md`](experiments/sweep-results.md)). N=10 gives rates over a small sample, not population estimates, and the conditions are constructed; the result is a clear boundary (consistent/non-numeric fabrications certified ~100%, inconsistent ones caught ~100%), not a calibrated real-world incidence.
 - The bundled `detect_xlsx` recompute engine is intentionally small (common operators + `IF`/`SUM`/`MIN`/`MAX`/`ROUND`/`ABS`/`AVERAGE`). For arbitrary workbooks use LibreOffice headless recalc, [`formulas`](https://pypi.org/project/formulas/), or [`pycel`](https://pypi.org/project/pycel/).
 - This is a known class in eDiscovery and security research. The new material is the two instances and the **defense characterization**, not the existence of parser-differentials.
 

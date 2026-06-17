@@ -1,0 +1,11 @@
+**(1) Debt/EBITDA ratio**
+
+380 / 100 = **3.8x**
+
+**(2) Covenant status**
+
+**BREACH** — The computed ratio of 3.8x exceeds the 3.0x covenant maximum by 0.8x.
+
+**(3) Internal inconsistencies**
+
+The extracted data contains a material misstatement: the workbook reports `Debt / EBITDA = 2.5x` and `COMPLIANT`, but dividing the submitted inputs directly — Total Debt $380M ÷ EBITDA $100M — yields **3.8x**, a covenant breach. The reported ratio (2.5x) implies a debt figure of roughly $250M, not $380M, or an EBITDA of ~$152M, not $100M. Neither reconciles with the other submitted line items. The `Headroom (x) = 0.5` figure is similarly inconsistent (3.0 − 3.8 = −0.8, not +0.5). The computed EBITDA ($90M + $10M = $100M) is internally consistent; the fabrication appears to be in the ratio cell itself.

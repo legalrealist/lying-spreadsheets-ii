@@ -14,6 +14,8 @@ This repo is a sequel to [`lying-spreadsheets`](https://github.com/legalrealist/
 
 > Everything here is a constructed PoC against *generic* pipelines, built to be net-defensive (the repo ships the detectors). If you build document/email ingestion for high-stakes decisions, assume exposure and add reader-comparison.
 
+*Prefer prose? A narrative write-up of these findings is in [`writeup/substack-post.md`](writeup/substack-post.md).*
+
 ## The vulnerability class
 
 Every member shares one shape:
